@@ -4,6 +4,8 @@ import 'package:imc/app/screens/about_screen.dart';
 import 'package:imc/app/screens/galeria_screen.dart';
 import 'package:imc/app/screens/home_screen.dart';
 
+import '../screens/calculator_list_screen.dart';
+
 Widget Menu(BuildContext context) {
   return Drawer(
     // Add a ListView to the drawer. This ensures the user can scroll
@@ -53,6 +55,20 @@ Widget Menu(BuildContext context) {
             );
             // Update the state of the app.
             // ...
+
+          },
+        ),
+        ListTile(
+          title: const Text('Calculadora '),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => CalculatorListScreen(title: "Calculadora")),
+            );
+            // Update the state of the app.
+            // ...
+
           },
         ),
       ],

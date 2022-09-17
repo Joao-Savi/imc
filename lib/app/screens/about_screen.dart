@@ -43,6 +43,7 @@ class _MyAboutScreenState extends State<AboutScreen> {
           children: <Widget>[
             Text("sobre")
 
+
           ],
         ),
       ),
