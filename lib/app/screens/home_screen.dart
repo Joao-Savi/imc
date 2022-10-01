@@ -12,7 +12,8 @@ class HomeScreen extends StatefulWidget {
 
 class _MyHomeScreenState extends State<HomeScreen> {
 
-  int _counter = 0;
+  List<dynamic> _listResult = [];
+
   String _text = '';
   double _imc = 0;
   TextEditingController _pesoController = TextEditingController();
@@ -38,6 +39,10 @@ class _MyHomeScreenState extends State<HomeScreen> {
         } else if(_imc >= 40){
           _text = "Obesidade Grau III";
         }
+
+
+        _listResult.add(_imc.toStringAsFixed(2));
+
     });
   }
 
@@ -48,6 +53,7 @@ class _MyHomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        backgroundColor: Colors.blueGrey,
       ),
       body: Center(
 
@@ -87,6 +93,26 @@ class _MyHomeScreenState extends State<HomeScreen> {
                 _calcular();
               },
               child: Text('$_text'),
+            ),
+
+            Expanded(
+              child: ListView.builder(
+                  itemCount: _listResult.length,
+                  itemBuilder: (context, index){
+                    return ListTile(
+                      title: Text(_listResult[index].toString()),
+                      trailing: IconButton(
+                        icon: const Icon(Icons.delete, color: Colors.red),
+                        tooltip: 'increase volume by 10',
+                        onPressed: (){
+                          setState(() {
+                            _listResult.remove(_listResult[index]);
+                          });
+                        },
+                      ),
+                    );
+                  }
+              ),
             ),
           ],
         ),

@@ -18,7 +18,13 @@ class _MyCalculatorListScreen extends State<CalculatorListScreen> {
 
   TextEditingController _firstInputController = TextEditingController();
   TextEditingController _secondInputController = TextEditingController();
-  TextEditingController _alturaController = TextEditingController();
+
+  void _limpaCampos(){
+    setState(() {
+      _firstInputController.clear();
+      _secondInputController.clear();
+    });
+  }
 
   void _Somar() {
 
@@ -74,6 +80,13 @@ class _MyCalculatorListScreen extends State<CalculatorListScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        backgroundColor: Colors.blueGrey,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: _limpaCampos,
+          )
+        ],
       ),
       //drawer: Menu(context),
       body: Column(
@@ -97,6 +110,7 @@ class _MyCalculatorListScreen extends State<CalculatorListScreen> {
           ),
 
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextButton(
                 style: ButtonStyle(

@@ -15,14 +15,17 @@ Widget Menu(BuildContext context) {
       // Important: Remove any padding from the ListView.
       padding: EdgeInsets.zero,
       children: [
-        const DrawerHeader(
-          decoration: BoxDecoration(
-            color: Colors.blueGrey,
-          ),
-          child: Text('Menu'),
+        const UserAccountsDrawerHeader(
+            decoration:BoxDecoration(
+              color: Colors.blueGrey,
+            ) ,
+            accountName: Text("João Savi"),
+            accountEmail: Text("joao_g_savi@estudante.sesisenai.org.br"),
         ),
+
         ListTile(
           title: const Text('Calculadora de IMC'),
+          leading: Icon(Icons.accessibility_outlined),
           onTap: () {
             Navigator.push(
               context,
@@ -35,6 +38,7 @@ Widget Menu(BuildContext context) {
         ),
         ListTile(
           title: const Text('Sobre'),
+          leading: Icon(Icons.add),
           onTap: () {
             Navigator.push(
               context,
@@ -47,6 +51,7 @@ Widget Menu(BuildContext context) {
         ),
         ListTile(
           title: const Text('galeria'),
+          leading: Icon(Icons.add_a_photo),
           onTap: () {
             Navigator.push(
               context,
@@ -60,11 +65,13 @@ Widget Menu(BuildContext context) {
         ),
         ListTile(
           title: const Text('Calculadora '),
+          leading: Icon(Icons.ad_units),
           onTap: () {
             Navigator.push(
               context,
               MaterialPageRoute(
                   builder: (context) => CalculatorListScreen(title: "Calculadora")),
+
             );
             // Update the state of the app.
             // ...

@@ -38,6 +38,7 @@ class _MyGaleriaScreen extends State<GaleriaScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        backgroundColor: Colors.blueGrey,
       ),
 
       drawer:
